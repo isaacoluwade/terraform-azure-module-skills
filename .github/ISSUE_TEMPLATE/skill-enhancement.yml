@@ -1,0 +1,52 @@
+name: Skill enhancement
+description: Request expanded coverage or additional examples in an existing skill
+title: "[enhancement] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template to request that an existing skill cover an additional topic, pattern, or scenario.
+
+  - type: dropdown
+    id: skill
+    attributes:
+      label: Skill to enhance
+      options:
+        - terraform-azure-module
+        - terraform-azure-module-review
+        - terraform-azure-patterns
+        - terraform-locals-patterns
+        - terraform-module-documentation
+        - terraform-module-outputs
+        - terraform-module-structure
+        - terraform-module-testing
+        - terraform-module-versioning
+        - terraform-provider-versioning
+        - terraform-resource-naming
+        - terraform-style-and-formatting
+        - terraform-variable-design
+    validations:
+      required: true
+
+  - type: textarea
+    id: addition
+    attributes:
+      label: What should be added
+      description: Pattern, recipe, or scenario the skill currently doesn't cover.
+    validations:
+      required: true
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Why it matters
+      description: Real situation that prompted this. What did you (or the agent) get wrong without this guidance?
+    validations:
+      required: true
+
+  - type: textarea
+    id: example
+    attributes:
+      label: Example HCL or output (optional)
+      description: A concrete example of what the new guidance should look like.

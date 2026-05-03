@@ -1,0 +1,61 @@
+name: Validate marketplace.json
+
+on:
+  push:
+    paths:
+      - '.claude-plugin/marketplace.json'
+      - 'skills/**'
+      - '.github/workflows/validate-marketplace.yml'
+  pull_request:
+    paths:
+      - '.claude-plugin/marketplace.json'
+      - 'skills/**'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate marketplace.json is valid JSON
+        run: jq empty .claude-plugin/marketplace.json
+
+      - name: Validate every skill path in marketplace.json resolves to a directory with SKILL.md
+        run: |
+          set -euo pipefail
+          paths=$(jq -r '.plugins[].skills[]' .claude-plugin/marketplace.json | sort -u)
+          missing=0
+          while IFS= read -r path; do
+            if [ ! -f "${path}/SKILL.md" ]; then
+              echo "::error::Missing SKILL.md at ${path}"
+              missing=1
+            fi
+          done <<< "$paths"
+          if [ $missing -ne 0 ]; then
+            exit 1
+          fi
+          echo "All skill paths resolve."
+
+      - name: Validate every SKILL.md has YAML frontmatter with name and description
+        run: |
+          set -euo pipefail
+          missing=0
+          for skill in skills/*/SKILL.md; do
+            if ! head -n 1 "$skill" | grep -q '^---$'; then
+              echo "::error::${skill} missing opening --- frontmatter delimiter"
+              missing=1
+              continue
+            fi
+            if ! grep -q '^name: ' "$skill"; then
+              echo "::error::${skill} missing 'name:' in frontmatter"
+              missing=1
+            fi
+            if ! grep -q '^description: ' "$skill"; then
+              echo "::error::${skill} missing 'description:' in frontmatter"
+              missing=1
+            fi
+          done
+          if [ $missing -ne 0 ]; then
+            exit 1
+          fi
+          echo "All SKILL.md files have valid frontmatter."

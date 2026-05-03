@@ -1,0 +1,98 @@
+{
+  "name": "terraform-azure-module-skills",
+  "owner": {
+    "name": "Isaac Oluwade"
+  },
+  "metadata": {
+    "description": "Agent Skills for authoring, reviewing, upgrading, and refactoring production-grade Azure Terraform modules",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "terraform-azure-module-skills",
+      "source": "./",
+      "description": "Complete collection: orchestrator, schema lookup, provider upgrade, variable design, locals, outputs, naming, providers, structure, testing, documentation, Azure patterns, style, versioning, dynamic/conditionals, state and lifecycle, fix advisory, and PR review",
+      "version": "0.1.0",
+      "keywords": ["terraform", "azure", "azurerm", "module", "iac", "hcl", "infrastructure", "cloud", "review", "best-practices", "schema", "upgrade", "lifecycle"],
+      "category": "development",
+      "strict": false,
+      "skills": [
+        "./skills/terraform-azure-module",
+        "./skills/terraform-azure-module-review",
+        "./skills/terraform-azure-patterns",
+        "./skills/terraform-dynamic-and-conditionals",
+        "./skills/terraform-locals-patterns",
+        "./skills/terraform-module-documentation",
+        "./skills/terraform-module-fix-advisory",
+        "./skills/terraform-module-outputs",
+        "./skills/terraform-module-structure",
+        "./skills/terraform-module-testing",
+        "./skills/terraform-module-versioning",
+        "./skills/terraform-provider-upgrade",
+        "./skills/terraform-provider-versioning",
+        "./skills/terraform-resource-naming",
+        "./skills/terraform-schema-lookup",
+        "./skills/terraform-state-and-lifecycle",
+        "./skills/terraform-style-and-formatting",
+        "./skills/terraform-variable-design"
+      ]
+    },
+    {
+      "name": "terraform-module-core-skills",
+      "source": "./",
+      "description": "Cloud-agnostic Terraform module authoring, testing, and refactoring: variable design, locals, outputs, naming, providers, structure, testing, documentation, style, versioning, schema lookup, provider upgrade, dynamic/conditionals, state and lifecycle, fix advisory",
+      "version": "0.1.0",
+      "keywords": ["terraform", "module", "iac", "hcl", "best-practices", "review", "testing", "terratest", "tflint", "checkov", "schema", "upgrade", "lifecycle", "moved", "import"],
+      "category": "development",
+      "strict": false,
+      "skills": [
+        "./skills/terraform-dynamic-and-conditionals",
+        "./skills/terraform-locals-patterns",
+        "./skills/terraform-module-documentation",
+        "./skills/terraform-module-fix-advisory",
+        "./skills/terraform-module-outputs",
+        "./skills/terraform-module-structure",
+        "./skills/terraform-module-testing",
+        "./skills/terraform-module-versioning",
+        "./skills/terraform-provider-upgrade",
+        "./skills/terraform-provider-versioning",
+        "./skills/terraform-resource-naming",
+        "./skills/terraform-schema-lookup",
+        "./skills/terraform-state-and-lifecycle",
+        "./skills/terraform-style-and-formatting",
+        "./skills/terraform-variable-design"
+      ]
+    },
+    {
+      "name": "terraform-azure-skills",
+      "source": "./",
+      "description": "Azure-specific Terraform module guidance: module orchestrator, Azure patterns (Key Vault, RBAC, networking, diagnostics), and Azure module PR review",
+      "version": "0.1.0",
+      "keywords": ["terraform", "azure", "azurerm", "key-vault", "rbac", "private-endpoint", "diagnostics"],
+      "category": "development",
+      "strict": false,
+      "skills": [
+        "./skills/terraform-azure-module",
+        "./skills/terraform-azure-module-review",
+        "./skills/terraform-azure-patterns"
+      ]
+    },
+    {
+      "name": "terraform-agent-essentials",
+      "source": "./",
+      "description": "The agent-value-first subset: tools the AI agent reaches for to write correct, current Terraform — schema lookup, provider upgrade, dynamic/conditionals decision rules, state and lifecycle judgment, multi-layer testing, fix advisory",
+      "version": "0.1.0",
+      "keywords": ["terraform", "agent", "schema", "providers-schema-json", "upgrade", "lifecycle", "moved", "import", "test", "tflint", "checkov"],
+      "category": "development",
+      "strict": false,
+      "skills": [
+        "./skills/terraform-dynamic-and-conditionals",
+        "./skills/terraform-module-fix-advisory",
+        "./skills/terraform-module-testing",
+        "./skills/terraform-provider-upgrade",
+        "./skills/terraform-schema-lookup",
+        "./skills/terraform-state-and-lifecycle"
+      ]
+    }
+  ]
+}

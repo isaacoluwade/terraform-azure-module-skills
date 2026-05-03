@@ -1,0 +1,8 @@
+.DS_Store
+CLAUDE.md
+.claude/
+.agents/
+*.skill
+node_modules/
+.idea/
+.vscode/

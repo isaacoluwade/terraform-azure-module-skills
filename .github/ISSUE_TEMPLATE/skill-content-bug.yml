@@ -1,0 +1,65 @@
+name: Skill content bug
+description: Report incorrect, outdated, or misleading guidance in a skill
+title: "[bug] "
+labels: ["bug", "skill-content"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template to report content errors in a skill: incorrect HCL, outdated provider arguments, misleading recommendations, broken examples, or guidance that contradicts current Terraform/AzureRM documentation.
+
+  - type: dropdown
+    id: skill
+    attributes:
+      label: Affected skill
+      options:
+        - terraform-azure-module
+        - terraform-azure-module-review
+        - terraform-azure-patterns
+        - terraform-locals-patterns
+        - terraform-module-documentation
+        - terraform-module-outputs
+        - terraform-module-structure
+        - terraform-module-testing
+        - terraform-module-versioning
+        - terraform-provider-versioning
+        - terraform-resource-naming
+        - terraform-style-and-formatting
+        - terraform-variable-design
+    validations:
+      required: true
+
+  - type: input
+    id: section
+    attributes:
+      label: Section or file
+      description: e.g. "SKILL.md > Standard Variables", or "references/key-vault.md > line 80"
+    validations:
+      required: true
+
+  - type: textarea
+    id: incorrect
+    attributes:
+      label: What's incorrect
+      description: Quote the passage and explain what's wrong with it.
+    validations:
+      required: true
+
+  - type: textarea
+    id: source
+    attributes:
+      label: Authoritative source
+      description: Link to HashiCorp / Microsoft / AzureRM provider documentation that supports the correction.
+    validations:
+      required: true
+
+  - type: input
+    id: tf-version
+    attributes:
+      label: Terraform version
+      placeholder: e.g. 1.9.5
+  - type: input
+    id: provider-version
+    attributes:
+      label: azurerm provider version
+      placeholder: e.g. 4.20.0

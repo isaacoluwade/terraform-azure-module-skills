@@ -1,0 +1,39 @@
+name: New skill request
+description: Request a new skill covering a topic the collection doesn't address yet
+title: "[new-skill] "
+labels: ["new-skill"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template to request a new skill. Before filing, check that no existing skill already covers the topic — see the README catalog.
+
+  - type: input
+    id: topic
+    attributes:
+      label: Proposed skill topic
+      description: One-line description (e.g. "GitHub Actions integration for Terraform modules")
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: What would the skill cover? What would it NOT cover (i.e. the boundary with existing skills)?
+    validations:
+      required: true
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Why it matters
+      description: What is the user trying to accomplish? What goes wrong today without this skill?
+    validations:
+      required: true
+
+  - type: textarea
+    id: examples
+    attributes:
+      label: Example prompts that would trigger this skill
+      description: Two or three realistic user prompts that should route to this skill.
